@@ -1,0 +1,61 @@
+{
+    "contractName": "Call",
+    "abi": [],
+    "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"c:/private/Defi/Options/contracts/call.sol\":\"Call\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"c:/private/Defi/Options/contracts/call.sol\":{\"keccak256\":\"0xf44b9da4b621dc9885f2a0c8094a078456127c4f79160d7ca274a92edebf3b78\",\"urls\":[\"bzz-raw://3b51a096aeecef37ee557812abde20d97cc9348cc87223c3a2e905901d1d028a\",\"dweb:/ipfs/QmeUBEYwUP5rNbj4uHsT8kkZ1NEZNCztLKuZ2X7caFjcH1\"]}},\"version\":1}",
+    "bytecode": "60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220f69fd15cc3d06f621705244145403e983aeb43ce501a8d6d398c33aa295b86f964736f6c63430008000033",
+    "deployedBytecode": "73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220f69fd15cc3d06f621705244145403e983aeb43ce501a8d6d398c33aa295b86f964736f6c63430008000033",
+    "sourceMap": "29:20:0:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;29:20:0;;;;;;;;;;;;;;;;;",
+    "deployedSourceMap": "29:20:0:-:0;;;;;;;;",
+    "sourcePath": "c:/private/Defi/Options/contracts/call.sol",
+    "compiler": {
+        "name": "solc",
+        "version": "0.8.0+commit.c7dfd78e"
+    },
+    "ast": {
+        "absolutePath": "c:/private/Defi/Options/contracts/call.sol",
+        "exportedSymbols": {
+            "Call": [
+                2
+            ]
+        },
+        "id": 3,
+        "nodeType": "SourceUnit",
+        "nodes": [
+            {
+                "id": 1,
+                "literals": [
+                    "solidity",
+                    "0.8",
+                    ".0"
+                ],
+                "nodeType": "PragmaDirective",
+                "src": "1:23:0"
+            },
+            {
+                "abstract": false,
+                "baseContracts": [],
+                "contractDependencies": [],
+                "contractKind": "library",
+                "fullyImplemented": true,
+                "id": 2,
+                "linearizedBaseContracts": [
+                    2
+                ],
+                "name": "Call",
+                "nodeType": "ContractDefinition",
+                "nodes": [],
+                "scope": 3,
+                "src": "29:20:0"
+            }
+        ],
+        "src": "1:48:0"
+    },
+    "functionHashes": {},
+    "gasEstimates": {
+        "creation": {
+            "codeDepositCost": "17200",
+            "executionCost": "103",
+            "totalCost": "17303"
+        }
+    }
+}

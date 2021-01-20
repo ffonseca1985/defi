@@ -1,0 +1,490 @@
+{
+    "contractName": "Option",
+    "abi": [
+        {
+            "inputs": [],
+            "name": "AquisitionDate",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "AssetObject",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "Value",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "Name",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "Description",
+                    "type": "string"
+                },
+                {
+                    "internalType": "string",
+                    "name": "Initials",
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "MaturityDate",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "Premium",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "Strike",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ],
+    "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"AquisitionDate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"AssetObject\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"Value\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"Name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"Description\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"Initials\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MaturityDate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"Premium\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"Strike\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"c:/private/Defi/Options/contracts/option.sol\":\"Option\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"c:/private/Defi/Options/contracts/option.sol\":{\"keccak256\":\"0xa95103ece2b62d1e56a1ce5cd509561d2bd715f591b420d1db6a2290c45c1d22\",\"urls\":[\"bzz-raw://57c77d84c1da27cfa3bc0c89c0ef4ea56551c51e445d1e5530d11ecb2dce6657\",\"dweb:/ipfs/QmUeaDySAHtxYELyLiHPLKyNTsd7JktU1rKgJYgURZXBAP\"]}},\"version\":1}",
+    "bytecode": "608060405234801561001057600080fd5b50610384806100206000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c806340e266ff1461005c57806381531c641461007d5780639f5f356514610092578063c055b2401461009a578063d3e3a0ef146100a2575b600080fd5b6100646100aa565b60405161007494939291906102c9565b60405180910390f35b61008561025d565b60405161007491906102c0565b610085610263565b610085610269565b61008561026f565b60008054600180549192916100be90610313565b80601f01602080910402602001604051908101604052809291908181526020018280546100ea90610313565b80156101375780601f1061010c57610100808354040283529160200191610137565b820191906000526020600020905b81548152906001019060200180831161011a57829003601f168201915b50505050509080600201805461014c90610313565b80601f016020809104026020016040519081016040528092919081815260200182805461017890610313565b80156101c55780601f1061019a576101008083540402835291602001916101c5565b820191906000526020600020905b8154815290600101906020018083116101a857829003601f168201915b5050505050908060030180546101da90610313565b80601f016020809104026020016040519081016040528092919081815260200182805461020690610313565b80156102535780601f1061022857610100808354040283529160200191610253565b820191906000526020600020905b81548152906001019060200180831161023657829003601f168201915b5050505050905084565b60045481565b60075481565b60055481565b60065481565b60008151808452815b8181101561029a5760208185018101518683018201520161027e565b818111156102ab5782602083870101525b50601f01601f19169290920160200192915050565b90815260200190565b6000858252608060208301526102e26080830186610275565b82810360408401526102f48186610275565b905082810360608401526103088185610275565b979650505050505050565b60028104600182168061032757607f821691505b6020821081141561034857634e487b7160e01b600052602260045260246000fd5b5091905056fea2646970667358221220666a120990b50734c286d9e7768fac1efd4ac719d2ba4361681ada75a68198da64736f6c63430008000033",
+    "deployedBytecode": "608060405234801561001057600080fd5b50600436106100575760003560e01c806340e266ff1461005c57806381531c641461007d5780639f5f356514610092578063c055b2401461009a578063d3e3a0ef146100a2575b600080fd5b6100646100aa565b60405161007494939291906102c9565b60405180910390f35b61008561025d565b60405161007491906102c0565b610085610263565b610085610269565b61008561026f565b60008054600180549192916100be90610313565b80601f01602080910402602001604051908101604052809291908181526020018280546100ea90610313565b80156101375780601f1061010c57610100808354040283529160200191610137565b820191906000526020600020905b81548152906001019060200180831161011a57829003601f168201915b50505050509080600201805461014c90610313565b80601f016020809104026020016040519081016040528092919081815260200182805461017890610313565b80156101c55780601f1061019a576101008083540402835291602001916101c5565b820191906000526020600020905b8154815290600101906020018083116101a857829003601f168201915b5050505050908060030180546101da90610313565b80601f016020809104026020016040519081016040528092919081815260200182805461020690610313565b80156102535780601f1061022857610100808354040283529160200191610253565b820191906000526020600020905b81548152906001019060200180831161023657829003601f168201915b5050505050905084565b60045481565b60075481565b60055481565b60065481565b60008151808452815b8181101561029a5760208185018101518683018201520161027e565b818111156102ab5782602083870101525b50601f01601f19169290920160200192915050565b90815260200190565b6000858252608060208301526102e26080830186610275565b82810360408401526102f48186610275565b905082810360608401526103088185610275565b979650505050505050565b60028104600182168061032757607f821691505b6020821081141561034857634e487b7160e01b600052602260045260246000fd5b5091905056fea2646970667358221220666a120990b50734c286d9e7768fac1efd4ac719d2ba4361681ada75a68198da64736f6c63430008000033",
+    "sourceMap": "422:36:0:-:0;;;;;;;;;;;;;;;;;;;",
+    "deployedSourceMap": "422:36:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;182:24;;;:::i;:::-;;;;;;;;;;:::i;:::-;;;;;;;;219:18;;;:::i;:::-;;;;;;;:::i;301:26::-;;;:::i;244:19::-;;;:::i;270:24::-;;;:::i;182:::-;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;219:18::-;;;;:::o;301:26::-;;;;:::o;244:19::-;;;;:::o;270:24::-;;;;:::o;14:478:1:-;;96:5;90:12;123:6;118:3;111:19;148:3;160:162;174:6;171:1;168:13;160:162;;;236:4;292:13;;;288:22;;282:29;264:11;;;260:20;;253:59;189:12;160:162;;;340:6;337:1;334:13;331:2;;;406:3;399:4;390:6;385:3;381:16;377:27;370:40;331:2;-1:-1:-1;474:2:1;453:15;-1:-1:-1;;449:29:1;440:39;;;;481:4;436:50;;66:426;-1:-1:-1;;66:426:1:o;497:177::-;643:25;;;631:2;616:18;;598:76::o;679:625::-;;952:6;941:9;934:25;995:3;990:2;979:9;975:18;968:31;1022:48;1065:3;1054:9;1050:19;1042:6;1022:48;:::i;:::-;1118:9;1110:6;1106:22;1101:2;1090:9;1086:18;1079:50;1152:35;1180:6;1172;1152:35;:::i;:::-;1138:49;;1235:9;1227:6;1223:22;1218:2;1207:9;1203:18;1196:50;1263:35;1291:6;1283;1263:35;:::i;:::-;1255:43;924:380;-1:-1:-1;;;;;;;924:380:1:o;1309:::-;1394:1;1384:12;;1441:1;1431:12;;;1452:2;;1506:4;1498:6;1494:17;1484:27;;1452:2;1559;1551:6;1548:14;1528:18;1525:38;1522:2;;;1605:10;1600:3;1596:20;1593:1;1586:31;1640:4;1637:1;1630:15;1668:4;1665:1;1658:15;1522:2;;1364:325;;;:::o",
+    "sourcePath": "c:/private/Defi/Options/contracts/option.sol",
+    "compiler": {
+        "name": "solc",
+        "version": "0.8.0+commit.c7dfd78e"
+    },
+    "ast": {
+        "absolutePath": "c:/private/Defi/Options/contracts/option.sol",
+        "exportedSymbols": {
+            "Option": [
+                31
+            ],
+            "OptionBase": [
+                28
+            ]
+        },
+        "id": 32,
+        "nodeType": "SourceUnit",
+        "nodes": [
+            {
+                "id": 1,
+                "literals": [
+                    "solidity",
+                    "0.8",
+                    ".0"
+                ],
+                "nodeType": "PragmaDirective",
+                "src": "0:22:0"
+            },
+            {
+                "abstract": false,
+                "baseContracts": [],
+                "contractDependencies": [],
+                "contractKind": "contract",
+                "fullyImplemented": true,
+                "id": 28,
+                "linearizedBaseContracts": [
+                    28
+                ],
+                "name": "OptionBase",
+                "nodeType": "ContractDefinition",
+                "nodes": [
+                    {
+                        "canonicalName": "OptionBase.Asset",
+                        "id": 10,
+                        "members": [
+                            {
+                                "constant": false,
+                                "id": 3,
+                                "mutability": "mutable",
+                                "name": "Value",
+                                "nodeType": "VariableDeclaration",
+                                "scope": 10,
+                                "src": "79:10:0",
+                                "stateVariable": false,
+                                "storageLocation": "default",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                },
+                                "typeName": {
+                                    "id": 2,
+                                    "name": "uint",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "79:4:0",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    }
+                                },
+                                "visibility": "internal"
+                            },
+                            {
+                                "constant": false,
+                                "id": 5,
+                                "mutability": "mutable",
+                                "name": "Name",
+                                "nodeType": "VariableDeclaration",
+                                "scope": 10,
+                                "src": "100:11:0",
+                                "stateVariable": false,
+                                "storageLocation": "default",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_string_storage_ptr",
+                                    "typeString": "string"
+                                },
+                                "typeName": {
+                                    "id": 4,
+                                    "name": "string",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "100:6:0",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_string_storage_ptr",
+                                        "typeString": "string"
+                                    }
+                                },
+                                "visibility": "internal"
+                            },
+                            {
+                                "constant": false,
+                                "id": 7,
+                                "mutability": "mutable",
+                                "name": "Description",
+                                "nodeType": "VariableDeclaration",
+                                "scope": 10,
+                                "src": "122:18:0",
+                                "stateVariable": false,
+                                "storageLocation": "default",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_string_storage_ptr",
+                                    "typeString": "string"
+                                },
+                                "typeName": {
+                                    "id": 6,
+                                    "name": "string",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "122:6:0",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_string_storage_ptr",
+                                        "typeString": "string"
+                                    }
+                                },
+                                "visibility": "internal"
+                            },
+                            {
+                                "constant": false,
+                                "id": 9,
+                                "mutability": "mutable",
+                                "name": "Initials",
+                                "nodeType": "VariableDeclaration",
+                                "scope": 10,
+                                "src": "151:15:0",
+                                "stateVariable": false,
+                                "storageLocation": "default",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_string_storage_ptr",
+                                    "typeString": "string"
+                                },
+                                "typeName": {
+                                    "id": 8,
+                                    "name": "string",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "151:6:0",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_string_storage_ptr",
+                                        "typeString": "string"
+                                    }
+                                },
+                                "visibility": "internal"
+                            }
+                        ],
+                        "name": "Asset",
+                        "nodeType": "StructDefinition",
+                        "scope": 28,
+                        "src": "55:119:0",
+                        "visibility": "public"
+                    },
+                    {
+                        "constant": false,
+                        "functionSelector": "40e266ff",
+                        "id": 13,
+                        "mutability": "mutable",
+                        "name": "AssetObject",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 28,
+                        "src": "182:24:0",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Asset_$10_storage",
+                            "typeString": "struct OptionBase.Asset"
+                        },
+                        "typeName": {
+                            "id": 12,
+                            "nodeType": "UserDefinedTypeName",
+                            "pathNode": {
+                                "id": 11,
+                                "name": "Asset",
+                                "nodeType": "IdentifierPath",
+                                "referencedDeclaration": 10,
+                                "src": "182:5:0"
+                            },
+                            "referencedDeclaration": 10,
+                            "src": "182:5:0",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Asset_$10_storage_ptr",
+                                "typeString": "struct OptionBase.Asset"
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "constant": false,
+                        "functionSelector": "81531c64",
+                        "id": 15,
+                        "mutability": "mutable",
+                        "name": "Strike",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 28,
+                        "src": "219:18:0",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                        },
+                        "typeName": {
+                            "id": 14,
+                            "name": "uint",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "219:4:0",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "constant": false,
+                        "functionSelector": "c055b240",
+                        "id": 17,
+                        "mutability": "mutable",
+                        "name": "Premium",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 28,
+                        "src": "244:19:0",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                        },
+                        "typeName": {
+                            "id": 16,
+                            "name": "uint",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "244:4:0",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "constant": false,
+                        "functionSelector": "d3e3a0ef",
+                        "id": 19,
+                        "mutability": "mutable",
+                        "name": "MaturityDate",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 28,
+                        "src": "270:24:0",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                        },
+                        "typeName": {
+                            "id": 18,
+                            "name": "uint",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "270:4:0",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "constant": false,
+                        "functionSelector": "9f5f3565",
+                        "id": 21,
+                        "mutability": "mutable",
+                        "name": "AquisitionDate",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 28,
+                        "src": "301:26:0",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                        },
+                        "typeName": {
+                            "id": 20,
+                            "name": "uint",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "301:4:0",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "canonicalName": "OptionBase.Participant",
+                        "id": 24,
+                        "members": [
+                            {
+                                "id": 22,
+                                "name": "Launcher",
+                                "nodeType": "EnumValue",
+                                "src": "355:8:0"
+                            },
+                            {
+                                "id": 23,
+                                "name": "Titular",
+                                "nodeType": "EnumValue",
+                                "src": "365:7:0"
+                            }
+                        ],
+                        "name": "Participant",
+                        "nodeType": "EnumDefinition",
+                        "src": "336:38:0"
+                    },
+                    {
+                        "canonicalName": "OptionBase.typeParticipant",
+                        "id": 27,
+                        "members": [
+                            {
+                                "id": 25,
+                                "name": "PUT",
+                                "nodeType": "EnumValue",
+                                "src": "403:3:0"
+                            },
+                            {
+                                "id": 26,
+                                "name": "CALL",
+                                "nodeType": "EnumValue",
+                                "src": "408:4:0"
+                            }
+                        ],
+                        "name": "typeParticipant",
+                        "nodeType": "EnumDefinition",
+                        "src": "380:33:0"
+                    }
+                ],
+                "scope": 32,
+                "src": "26:392:0"
+            },
+            {
+                "abstract": false,
+                "baseContracts": [
+                    {
+                        "baseName": {
+                            "id": 29,
+                            "name": "OptionBase",
+                            "nodeType": "IdentifierPath",
+                            "referencedDeclaration": 28,
+                            "src": "441:10:0"
+                        },
+                        "id": 30,
+                        "nodeType": "InheritanceSpecifier",
+                        "src": "441:10:0"
+                    }
+                ],
+                "contractDependencies": [
+                    28
+                ],
+                "contractKind": "contract",
+                "fullyImplemented": true,
+                "id": 31,
+                "linearizedBaseContracts": [
+                    31,
+                    28
+                ],
+                "name": "Option",
+                "nodeType": "ContractDefinition",
+                "nodes": [],
+                "scope": 32,
+                "src": "422:36:0"
+            }
+        ],
+        "src": "0:460:0"
+    },
+    "functionHashes": {
+        "AquisitionDate()": "9f5f3565",
+        "AssetObject()": "40e266ff",
+        "MaturityDate()": "d3e3a0ef",
+        "Premium()": "c055b240",
+        "Strike()": "81531c64"
+    },
+    "gasEstimates": {
+        "creation": {
+            "codeDepositCost": "180000",
+            "executionCost": "226",
+            "totalCost": "180226"
+        },
+        "external": {
+            "AquisitionDate()": "1050",
+            "AssetObject()": "infinite",
+            "MaturityDate()": "1094",
+            "Premium()": "1072",
+            "Strike()": "1028"
+        }
+    }
+}
