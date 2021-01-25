@@ -31,10 +31,15 @@ abstract contract OptionBase
 
     Collateral[] public Collaterals;
     StatusOption public Status;
-
+    TypeParticipant public Type;
+    
+    /// @return if collateral has add with sucess
     function AddCollateral() public virtual returns (bool);
+    
+    /// @return if collateral has retired with sucess
     function RetireCollateral()  public  virtual returns (bool);
-    function AddOrRemove() virtual public;
+
+    function Execute()  public  virtual;
 
     modifier HasCollateral {
         require(true, 'Without collateral to do transfer');
@@ -47,19 +52,22 @@ abstract contract OptionBase
     }
 
     function AddColateral() public  {
-        Collateral memory _colateral;
-       Collateral[] memory Collaterals2;
-       Collaterals2.push(_colateral);
+
     }
     
-    function ProcessOption() HasCollateral public {
+    /// @param balance the balance
+    function AddPremium(uint balance, address launcher) payable public {
+
+    }
+
+    function StartOption() HasCollateral public {
         this.AddCollateral();
-        this.AddOrRemove();
+        this.Execute();
     }
 
     function FinishOption() public {
         this.RetireCollateral();
-        this.AddOrRemove();
+        this.Execute();
     }
 }
 
@@ -73,7 +81,7 @@ contract OptionCall is OptionBase {
         return true;
     }
 
-    function AddOrRemove() override public {
+    function Execute() public override {
 
     }
 }
@@ -88,7 +96,7 @@ contract PutCall is OptionBase
         return true;
     }
 
-    function AddOrRemove() override public {
+    function Execute() override public {
 
     }
 }
