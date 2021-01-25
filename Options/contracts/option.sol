@@ -64,10 +64,9 @@ abstract contract OptionBase
 
     }
     
-    /// @param balance the balance
-    function AddPremium(uint balance, address launcher) payable public {
+    // function AddPremium(uint balance, address launcher) payable public {
 
-    }
+    // }
 
     function StartOption() HasCollateral public {
         this.AddCollateral();
