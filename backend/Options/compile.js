@@ -39,9 +39,10 @@ var solcInput = {
 };
 
 solcInput = JSON.stringify(solcInput);
-// console.log(solc.compile(solcInput))
+//console.log(solc.compile(solcInput))
 
 var contractObject = solc.compile(solcInput);
+console.log(contractObject)
 //contractObject = JSON.parse(contractObject);
 
 var call = JSON.parse(contractObject).contracts.contract.OptionCall;

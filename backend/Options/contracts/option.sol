@@ -1,74 +1,149 @@
 // // SPDX-License-Identifier: GPL-3.0
 pragma solidity >0.7.0 <0.9.0;
 
-struct Asset {
+// The tax value of premium  
+uint constant TX_PREMIUM = 1000 wei;
 
-        uint Value; // Give the valor of collateral
-        string Name; // Give the Name
-        string Description; // Give the description
-        string Initials; // Give the Initiais
- }
+struct Asset {
+    uint Value; // Give the valor of collateral
+    string Name; // Give the Name
+    string Description; // Give the description
+    string Initials; // Give the Initiais
+ } 
+
+ struct PremiumOption  {
+    uint Value;
+    address From;
+    address To;
+    uint Date;   
+ }   
 
  struct Collateral {
-     Asset[] Assets; // Assets of Collateral
-     uint CreateDate; // Date of CreateDate
- }  
+    address Address;   
+    uint Value; // Assets/Ether of Collateral
+    TypeCollateral Type;
+    uint CreateDate; // Date of CreateDate
+ }
 
- //Titular => has the rigth about the asset
- //Laucher => has of duty to buy
+ //@Acquisition => when the participant add the collateral
+ //@Redemption => when the participant remove the collateral
+ enum TypeCollateral {Acquisition, Redemption}
+
+ //@Titular => has the rigth about the asset
+ //@Laucher => has of duty to buy
  enum Participant { Launcher, Titular }
 
  enum TypeParticipant { Put, Call}
  
- //When init of transaction the sttatus is Open
- //When finish of transaction the sttatus is Open
- enum StatusOption { Open, Finish }
+ //When init of transaction the status is Opened
+ //When finish of transaction the status is Opened
+ enum StatusOption { Opened, Finished }
 
 abstract contract OptionBase 
 {
     Asset public AssetObject;
-    
+    PremiumOption public Premium;
+    StatusOption public Status;
+    TypeParticipant public Type;
+
     uint public Strike;
-    uint public Premium;
     uint public MaturityDate;
     uint public AquisitionDate;
 
+    //TODO this values made to be calculed in each operaction interaction 
+    mapping(address => Collateral[]) public Collaterals;
+    mapping(address => uint) public BalanceCollateral;
+
+    //amount balance the contract has to garantee the finished transaction;
+    uint private BalanceContract;
+
     //Events
-    event AddPremium(address indexed _from, address indexed _to, uint256 _value);
-    event Init(address indexed _from, address indexed _to, uint256 _value);
-    event Finish(address indexed _from, address indexed _to, uint256 _value);
-
-    Collateral[] public Collaterals;
-    StatusOption public Status;
-    TypeParticipant public Type;
+    event Inited(address indexed _from, address indexed _to, uint256 _value);
+    event Finished(address indexed _from, address indexed _to, uint256 _value);
     
-    /// @return if collateral has add with sucess
-    function AddCollateral() public virtual returns (bool);
-    
-    /// @return if collateral has retired with sucess
-    function RetireCollateral()  public  virtual returns (bool);
-
     function Execute()  public virtual;
 
-    modifier HasCollateral {
-        require(true, 'Without collateral to do transfer');
+    modifier HasCollateral 
+    {
+        uint amountMinForOperacao = TX_PREMIUM + msg.value;
+        require(amountMinForOperacao < BalanceCollateral[msg.sender], 'Without collateral to open the operation');
         _;
     }
 
-    modifier AlredyFinishTransaction {
-        require(Status == StatusOption.Finish, 'Transaction already not Finish');
+    modifier AlredyFinishedTransaction {
+        require(Status == StatusOption.Finished, 'Transaction already not Finish');
         _;
-    }
-
-    function AddColateral() public  {
-
     }
     
-    // function AddPremium(uint balance, address launcher) payable public {
+    event AddedPremium(uint value, address _from, address _to, uint date);
 
-    // }
+    function AddPremium(uint _value, address _from, address payable _to, uint _date) payable public {
 
-    function StartOption() HasCollateral public {
+        require(msg.value != 0.1 ether);
+
+        PremiumOption memory premium = PremiumOption({
+                Value: _value,
+                From: _from,
+                To: _to,
+                Date: _date
+        });
+
+        Premium = premium;
+
+         _to.transfer(msg.value);
+
+        emit AddedPremium(_value, _from, _to, _date);
+    }
+
+    function AddCollateral() payable public {
+        
+        Collateral memory collateral = Collateral({
+            Address: msg.sender,
+            Value: msg.value,
+            Type: TypeCollateral.Acquisition,
+            CreateDate: block.timestamp                
+        });
+        
+        Collaterals[msg.sender].push(collateral);
+        CalculateCollateral(Collaterals[msg.sender]);
+    }
+
+    function RetireCollateral() payable public {
+        
+        Collateral memory collateral = Collateral({
+            Address: msg.sender,
+            Value: msg.value,
+            Type: TypeCollateral.Redemption,
+            CreateDate: block.timestamp                
+        });
+        
+        Collaterals[msg.sender].push(collateral);
+        CalculateCollateral(Collaterals[msg.sender]);
+    }
+
+    function CalculateCollateral(Collateral[] storage collaterals) private {
+
+        uint counter = collaterals.length;
+        BalanceCollateral[msg.sender] = 0;
+
+        for (uint i = 0; i < counter; i ++) {
+
+            if (collaterals[i].Type == TypeCollateral.Acquisition)
+            {
+                BalanceCollateral[msg.sender] += collaterals[i].Value;
+            }
+            else if (collaterals[i].Type == TypeCollateral.Redemption) 
+            {
+                BalanceCollateral[msg.sender] -= collaterals[i].Value;
+            }
+            else 
+            {
+                revert();
+            }
+        }
+    }
+
+    function StartOption() payable HasCollateral public {
         this.AddCollateral();
         this.Execute();
     }
@@ -81,14 +156,6 @@ abstract contract OptionBase
 
 contract OptionCall is OptionBase {
 
-    function AddCollateral() public override pure returns (bool) {
-        return true;
-    }
-
-    function RetireCollateral() public override pure returns (bool) {
-        return true;
-    }
-
     function Execute() public override {
 
     }
@@ -96,14 +163,6 @@ contract OptionCall is OptionBase {
 
 contract PutCall is OptionBase 
 {
-    function AddCollateral() public override pure returns (bool) {
-        return true;
-    }
-
-    function RetireCollateral() public override pure returns (bool) {
-        return true;
-    }
-
     function Execute() override public {
 
     }
